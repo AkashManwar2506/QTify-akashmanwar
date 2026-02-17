@@ -3,7 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import { fetchFilters } from "../../api/api";
 import Hero from "../../components/Hero/Hero";
 import Section from "../../components/Section/Section";
-import styles from "./HomePage.module.css";
+import styles from "./Homepage.module.css";
 
 export default function HomePage() {
   const { data } = useOutletContext();
