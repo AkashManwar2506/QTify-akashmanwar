@@ -3,7 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { useSwiper } from "swiper/react";
 import styles from "./Carousel.module.css";
-import "swiper/swiper-bundle.css";
+// import "swiper/swiper-bundle.css";
+import "swiper/css";
+import "swiper/css/navigation";
 import CarouselLeftNavigation from "./CarouselLeftNavigation/CarouselLeftNavigation";
 import CarouselRightNavigation from "./CarouselRightNavigation/CarouselRightNavigation";
 
@@ -26,15 +28,16 @@ function Carousel({ data, renderComponent }) {
         modules={[Navigation]}
         slidesPerView={4}
         spaceBetween={40}
-        allowTouchMove
+        allowTouchMove={true}
+        loop={false}
       >
         <Controls data={data} />
-        <div>
-          <CarouselLeftNavigation />
-          <CarouselRightNavigation />
-        </div>
+
+        <CarouselLeftNavigation />
+        <CarouselRightNavigation />
+
         {data.map((ele) => (
-          <SwiperSlide>{renderComponent(ele)}</SwiperSlide>
+          <SwiperSlide key={ele.id}>{renderComponent(ele)}</SwiperSlide>
         ))}
       </Swiper>
     </div>
